@@ -1,5 +1,7 @@
 package oct19.algorithm;
 
+import java.util.EmptyStackException;
+
 public class Stack {
     private Integer[] arr;
     private int top = -1;
@@ -18,7 +20,17 @@ public class Stack {
         this.arr[++top] = value;
     }
 
+    //
     public Integer pop() {
-        return this.arr[--this.top];
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return this.arr[this.top--];
+
+    }
+
+    public boolean isEmpty() {
+        boolean isEmpty = (this.top == -1);
+        return isEmpty;
     }
 }
