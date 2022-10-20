@@ -33,4 +33,11 @@ public class Stack {
         boolean isEmpty = (this.top == -1);
         return isEmpty;
     }
+
+    public Integer peek() {
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return this.arr[top];
+    }
 }

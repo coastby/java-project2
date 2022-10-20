@@ -52,11 +52,23 @@ class StackTest {
     }
 
     @Test
+    void peek(){
+        Stack s = new Stack();
+        assertThrows(EmptyStackException.class, () -> {
+           s.peek();
+        });
+        s.push(1000);
+        assertEquals(1000, s.peek());
+    }
+
+    @Test
     void realStack(){
         java.util.Stack<Integer> st = new java.util.Stack<>();
         assertThrows(EmptyStackException.class, () -> {
             st.pop();
         });
+
+        System.out.println(st.peek());
     }
 
 }
