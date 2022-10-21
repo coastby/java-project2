@@ -23,6 +23,35 @@ public class Bracket {
 
         return answer;
     }
+    boolean solutionMulti(String s) {
+        boolean answer = false;
+        int cntS = 0;
+        int cntM = 0;
+        int cntL = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == '(') {
+                cntS++;
+            } else if (ch == ')') {
+                cntS--;
+            } else if (ch == '{') {
+                cntM++;
+            } else if (ch == '}') {
+                cntM--;
+            } else if (ch == '[') {
+                cntL++;
+            } else if (ch == ']') {
+                cntL--;
+            }
+            if (cntS < 0 || cntM <0 || cntL < 0) {
+                return answer;
+            }
+        }
+        answer = (cntS == 0 && cntM == 0 && cntL == 0);
+
+        return answer;
+    }
 
     //풀리기는 하지만 시간초과 나옴
     boolean solution2 (String s) {
