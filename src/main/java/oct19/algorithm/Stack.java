@@ -2,7 +2,7 @@ package oct19.algorithm;
 
 import java.util.EmptyStackException;
 
-public class Stack {
+public class Stack<T> {
     private Integer[] arr;
     private int top = -1;
     public Stack() {
