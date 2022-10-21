@@ -1,4 +1,4 @@
-package oct19.algorithm;
+package oct20;
 
 import java.util.Stack;
 
@@ -12,7 +12,7 @@ public class Bracket {
             char ch = s.charAt(i);
             if (ch == '(') {
                 cnt++;
-            } else {
+            } else if (ch == ')'){
                 cnt--;
             }
             if (cnt < 0) {

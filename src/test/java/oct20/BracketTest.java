@@ -1,4 +1,4 @@
-package oct19.algorithm;
+package oct20;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
