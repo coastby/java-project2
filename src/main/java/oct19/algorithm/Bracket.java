@@ -24,4 +24,31 @@ public class Bracket {
         return answer;
     }
 
+    //풀리기는 하지만 시간초과 나옴
+    boolean solution2 (String s) {
+        while (s.contains("()")) {
+            s = s.replace("()", "");
+        }
+        return s.isEmpty();
+    }
+
+    boolean solution3 (String s) {
+        Stack<Character> stack = new Stack<>();
+        boolean ans = false;
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == '(') {
+                stack.push('(');
+            } else {
+                if(stack.isEmpty()) {
+                    return false;
+                } else {
+                    stack.pop();
+                }
+            }
+        }
+        if (stack.isEmpty()) {ans = true;};
+        return ans;
+    }
+
 }

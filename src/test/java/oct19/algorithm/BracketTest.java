@@ -10,10 +10,10 @@ class BracketTest {
     @DisplayName("괄호짝 확인하기")
     void bracketTest(){
         Bracket br = new Bracket();
-        assertTrue(br.solution("()()"));
-        assertTrue(br.solution("(())()"));
-        assertFalse(br.solution(")()("));
-        assertFalse(br.solution("(()("));
+        assertTrue(br.solution3("()()"));
+        assertTrue(br.solution3("(())()"));
+        assertFalse(br.solution3(")()("));
+        assertFalse(br.solution3("(()("));
     }
 
 }
