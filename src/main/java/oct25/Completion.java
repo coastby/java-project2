@@ -1,6 +1,8 @@
 package oct25;
 
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 //프로그래머스 완주하지 못한 선수
 public class Completion {
@@ -23,6 +25,8 @@ public class Completion {
         String answer = ht.keySet().toArray()[0].toString();
         return answer;
     }
+
+
 
     public static void main(String[] args) {
         Completion com = new Completion();
