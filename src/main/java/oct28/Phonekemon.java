@@ -1,9 +1,6 @@
 package oct28;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 //프로그래머스 폰켓몬
