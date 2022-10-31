@@ -13,11 +13,13 @@ public class Examination {
         int[] ran3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
 
         int[][] rans = {ran1, ran2, ran3};
-        int max = -1;
+        int max = 0;
         for(int i = 0; i < 3; i++){
-            if(max <= correct(answers, rans[i])){
-                System.out.println(correct(answers, rans[i]));
+            if(max < correct(answers, rans[i])){
+                arr.clear();
                 max = correct(answers, rans[i]);
+                arr.add(i+1);
+            } else if (max == correct(answers, rans[i])) {
                 arr.add(i+1);
             }
         }
@@ -41,8 +43,9 @@ public class Examination {
         Examination exam = new Examination();
         int[] ans1 = exam.solution(new int[]{1,2,3,4,5});
         int[] ans2 = exam.solution(new int[]{1,3,2,4,2});
+        int[] ans3 = exam.solution(new int[]{1, 1, 1, 1});
         System.out.println(Arrays.toString(ans1));
         System.out.println(Arrays.toString(ans2));
+        System.out.println(Arrays.toString(ans3));
     }
-
 }
