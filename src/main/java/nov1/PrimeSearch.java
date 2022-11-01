@@ -42,21 +42,16 @@ public class PrimeSearch {
         boolean maxIs(int num, int i);
     }
 
-    //template callback 적용
-    public boolean plain (int num, int i){
-        return i<= num;
-    }
-    public boolean half (int num, int i){
-        return i/2<= num;
-    }
-    public boolean sqrt (int num, int i){
-        return i*i<= num;
-    }
 
     public int solution2(int n){
         int answer = 0;
         for (int i = 2; i < n+1; i++) {
-            if(isPrime(i)){
+            if(isPrime(i, new MaxMaker() {
+                @Override
+                public boolean maxIs(int num, int i) {
+                    return i*i <= num;
+                }
+            })){
                 answer++;
             }
         }
