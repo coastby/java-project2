@@ -4,6 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeSearch {
+    public boolean isPrime (int num){
+        boolean result = true;
+        for (int i = 2; i < num; i++) {
+            if(num%i == 0){
+                result = false;
+            }
+        }
+        return result;
+    }
+
+
+
+
     public int solution(int n) {
         List<Integer> primes = new ArrayList<>();
         int[] pool = new int[n+1];
@@ -21,7 +34,10 @@ public class PrimeSearch {
 
     public static void main(String[] args) {
         PrimeSearch ps = new PrimeSearch();
-        System.out.println(ps.solution(10));
-        System.out.println(ps.solution(5));
+        System.out.println(ps.isPrime(13));
+        System.out.println(ps.isPrime(17));
+        System.out.println(ps.isPrime(20));
+        System.out.println(ps.isPrime(23));
+
     }
 }
