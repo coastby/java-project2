@@ -4,19 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeSearch {
-    public boolean isPrime (int num){
-        boolean result = true;
-        for (int i = 2; i < num; i++) {
-            if(num%i == 0){
-                result = false;
-            }
-        }
-        return result;
-    }
-
-
-
-
     public int solution(int n) {
         List<Integer> primes = new ArrayList<>();
         int[] pool = new int[n+1];
@@ -32,12 +19,58 @@ public class PrimeSearch {
         return answer;
     }
 
+    public boolean isPrime (int num, MaxMaker maxMaker){
+        boolean result = true;
+        for (int i = 2; maxMaker.maxIs(num, i); i++) {
+            if(num%i == 0){
+                result = false;
+            }
+        }
+        return result;
+    }
+
+    public boolean callBackPrac1(int num){
+        return isPrime(num, new MaxMaker() {
+            @Override
+            public boolean maxIs(int num, int i) {
+                return i*i<num;
+            }
+        });
+    }
+
+    interface MaxMaker{
+        boolean maxIs(int num, int i);
+    }
+
+    //template callback 적용
+    public boolean plain (int num, int i){
+        return i<= num;
+    }
+    public boolean half (int num, int i){
+        return i/2<= num;
+    }
+    public boolean sqrt (int num, int i){
+        return i*i<= num;
+    }
+
+    public int solution2(int n){
+        int answer = 0;
+        for (int i = 2; i < n+1; i++) {
+            if(isPrime(i)){
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+
+
+
+
     public static void main(String[] args) {
         PrimeSearch ps = new PrimeSearch();
-        System.out.println(ps.isPrime(13));
-        System.out.println(ps.isPrime(17));
-        System.out.println(ps.isPrime(20));
-        System.out.println(ps.isPrime(23));
+        System.out.println(ps.solution2(10));
+        System.out.println(ps.solution2(5));
 
     }
 }
