@@ -32,8 +32,18 @@ public class Eratosthenes {
             nums.remove(nums.indexOf(i*2));
         }
         //3. 리스트에 있는 원소의 개수와 원소 출력해보기 - 잘 지워졌는 지 확인
+        //System.out.println(nums.size());
+        //nums.forEach((num) -> System.out.println(num));
+
+        //4. 배수들 지우기
+        for(int j = 2; j <= 50; j++){
+            for (int i = j; i <= 50/j; i++) {
+                if(nums.indexOf(i*j) != -1) {
+                    nums.remove(nums.indexOf(i * j));
+                }
+            }
+        }
         System.out.println(nums.size());
         nums.forEach((num) -> System.out.println(num));
-
     }
 }
