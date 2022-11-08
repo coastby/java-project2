@@ -8,9 +8,9 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 //[코드업] 3001 데이터탐색
-/**
- * 배열로 하려다가 IntStream이 코드업에서 인식이 안되어서 list이용
- * */
+
+/** * 배열로 하려다가 IntStream이 코드업에서 인식이 안되어서 list이용 * **/
+
 public class codeup3001 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
