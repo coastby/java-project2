@@ -2,6 +2,7 @@ package nov10;
 
 import java.util.*;
 
+// [programmers] 같은 숫자는 싫어
 public class SameNumber {
     /*
     * Stack 쓰고
