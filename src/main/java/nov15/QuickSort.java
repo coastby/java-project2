@@ -43,9 +43,41 @@ public class QuickSort {
         return result;
     }
 
+    public List<Integer> quickSortList(List<Integer> arr){
+        if(arr.size() == 1 || arr.size() == 0){
+            return arr;
+        }
+        //1. 기준갑 뽑는 로직 구현
+        int mid = arr.size()/2;
+        int pivot = arr.get(mid);
+
+        //2. 기준값 기준으로 왼쪽 오른쪽으로 나누어 담는 로직 구현
+        List<Integer> left = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
+        for (int i = 0; i < arr.size(); i++) {
+            if(i != mid){
+                if(arr.get(i) < pivot){
+                    left.add(arr.get(i));
+                } else{
+                    right.add(arr.get(i));
+                }
+            }
+        }
+        left = quickSortList(left);
+        right = quickSortList(right);
+
+        List<Integer> result = new ArrayList<>();
+        result.addAll(left);
+        result.add(pivot);
+        result.addAll(right);
+
+        return result;
+    }
+
 
     public static void main(String[] args) {
-        int[] arr = {20, 18, 5, 19, 5, 25, 40, 50};
+        int[] arr = {20, 18, 5, 19, 5, 25, 40, 50, 1, 100};
+        List<Integer> nums = List.of(20, 18, 5, 19, 5, 25, 40, 50, 1, 100);
         int[] result = new int[arr.length];
         //1. 기준갑 뽑는 로직 구현
         int start = 0;
@@ -77,6 +109,6 @@ public class QuickSort {
         }
         System.out.println(Arrays.toString(result));
         QuickSort qs = new QuickSort();
-        System.out.println(Arrays.toString(qs.quick(arr)));
+        System.out.println(qs.quickSortList(nums));
     }
 }
