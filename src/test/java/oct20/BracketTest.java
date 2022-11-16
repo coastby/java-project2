@@ -1,5 +1,6 @@
 package oct20;
 
+import october.oct20.Bracket;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +17,6 @@ class BracketTest {
         assertFalse(br.solution("(()("));
 
         assertTrue(br.solutionMulti("{{[}(]})"));
-        assertFalse(br.solutionMulti("{{(})([]"));
+        assertFalse(br.solutionMulti("()[]{)"));
     }
-
 }

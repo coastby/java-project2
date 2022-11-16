@@ -1,5 +1,6 @@
 package oct19.algorithm;
 
+import october.algorithm.StackPrac;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
