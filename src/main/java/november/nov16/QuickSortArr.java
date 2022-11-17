@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSortArr {
     public int[] QuickSort(int[] arr, int leftIdx, int rightIdx){
-        if((rightIdx-leftIdx) == 0){
+        if((rightIdx-leftIdx) <= 0){
             return arr;
         }
         int pivot = leftIdx;
@@ -55,6 +55,6 @@ public class QuickSortArr {
         System.out.println(Arrays.toString(arr));
 
         QuickSortArr qs = new QuickSortArr();
-        System.out.println(qs.QuickSort(arr, 0, arr.length-1));
+        System.out.println(Arrays.toString(qs.QuickSort(arr, 0, arr.length-1)));
     }
 }
