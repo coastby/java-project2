@@ -63,3 +63,9 @@
   - list를 이용한 퀵정렬 구현
 #### nov16
   - array를 이용한 퀵정렬 구현 (미완)
+#### nov17
+  - array를 이용한 퀵정렬 구현
+    - pivot이 첫 인덱스일 때와 가운데 인덱스일 때
+#### nov 18
+  - [Programmers] [시저 암호](https://school.programmers.co.kr/learn/courses/30/lessons/12926)
+  - [Programmers] [행렬의 덧셈](https://school.programmers.co.kr/learn/courses/30/lessons/12950)
