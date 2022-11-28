@@ -1,7 +1,7 @@
 package november.nov28;
 
 public class TotalAlphabet {
-    public static void main(String[] args) {
+    public void aToZ1(){
         //A-Z
         for(char ch = 'A'; ch <= 'Z'; ch++){
             System.out.println(ch);
@@ -15,4 +15,16 @@ public class TotalAlphabet {
             }
         }
     }
+    public void aToZ2(char ch){
+        if (ch == 'Z'+1) return;
+        System.out.println(ch);
+        aToZ2(++ch);
+    }
+
+    public static void main(String[] args) {
+        TotalAlphabet a = new TotalAlphabet();
+        a.aToZ2('A');
+    }
+
+
 }
