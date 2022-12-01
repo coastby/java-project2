@@ -1,7 +1,11 @@
 package december.dec01;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.PriorityQueue;
+
+import java.util.*;
 
 /**
  * [programmers] 명예의 전당
@@ -30,5 +34,21 @@ public class Fame {
         return answer;
     }
 
+    public int[] solution2(int k, int[] score){
+        int[] answer = new int[score.length];
+        List<Integer> nums = new ArrayList<>();
+        for (int i = 0; i < score.length; i++) {
+            if(i < k){
+                nums.add(score[i]);
+            } else {
+                if(score[i] > answer[i-1]){
+                    nums.remove(nums.indexOf(answer[i-1]));
+                    nums.add(score[i]);
+                }
+            }
+            answer[i] = Collections.min(nums);
+        }
+        return answer;
+    }
 }
 
