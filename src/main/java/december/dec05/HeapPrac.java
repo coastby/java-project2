@@ -17,7 +17,7 @@ public class HeapPrac {
     }
 
     public static int[] heap(int[] arr){
-        for (int i = arr.length-1; i > 0; i--){
+        for (int i현 = arr.length-1; i > 0; i--){
             arr = down(arr, i);
         }
         return arr;
