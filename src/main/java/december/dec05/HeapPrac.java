@@ -8,12 +8,16 @@ public class HeapPrac {
     public static int[] down(int[] arr, int a){
         int par = (a-1)/2;      //인덱스가 0부터 시작
         int chil = a;
+        if(a%2 == 0 && arr[a] < arr[a-1]) return arr;               //오른쪽 자식노드일 때 왼쪽 자식노드가 더 크면 패스
+
         if (arr[par] < arr[chil]){
             int tmp = arr[chil];
             arr[chil] = arr[par];
             arr[par] = tmp;
-            if(a*2+1 < arr.length) arr = down(arr, a*2+1);      //재귀를 이용하여 아래쪽도 교환을 해준다.
-            if(a*2+2 < arr.length) arr = down(arr, a*2+2);      //자식 노드가 두개 다
+
+            if(a*2+2 < arr.length && arr[a*2+2] > arr[a*2+1])
+                arr = down(arr, a*2+2);       //오른쪽 자식노드가 arr 범위 내이고, 왼쪽 자식노드보다 크면 오른쪽 자식으로 재귀
+            else if (a*2+1 < arr.length) arr = down(arr, a*2+1);      //아니면 왼쪽 자식으로 재귀
         }
         return arr;
     }
