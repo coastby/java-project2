@@ -13,17 +13,18 @@ import java.util.List;
 public class MinCostPath {
     public static int minCostPath(int[][] map){
         int[][] result = new int[map.length][map[0].length];        //map과 같은 크기의 배열 만들기
-        result[0][0] = map[0][0];   //(0,0)은 원래 비용이 최소비용
-        for (int i = 1; i < map[0].length; i++){        //첫번째 행 채우기 : 어차피 위로는 못가므로 왼쪽에서 오는 값만 신경쓴다.
-            result[0][i] = result[0][i-1] + map[0][i];
-        }
-        for (int i = 1; i < map.length; i++){        //첫번째 열 채우기 : 위에서 오는 값만 신경쓴다.
-            result[i][0] = result[i-1][0] + map[i][0];
-        }
-        for(int i = 1; i < map.length; i++){        //왼쪽, 위쪽, 대각선의 값 중 최소값을 가져와서 원래 칸의 비용과 더한다.
-            for (int j = 1; j < map[0].length; j++){
-                List<Integer> par = List.of(result[i-1][j], result[i][j-1], result[i-1][j-1]);
-                result[i][j] = map[i][j] + par.stream().mapToInt(a -> a).min().getAsInt();
+        for(int i = 0; i < map.length; i++){        //왼쪽, 위쪽, 대각선의 값 중 최소값을 가져와서 원래 칸의 비용과 더한다.
+            for (int j = 0; j < map[0].length; j++){
+                if (i == 0 && j == 0) {
+                    result[0][0] = map[0][0];   //(0,0)은 원래 비용이 최소비용
+                } else if(i == 0){                //첫번째 행 채우기 : 어차피 위로는 못가므로 왼쪽에서 오는 값만 신경쓴다.
+                    result[0][j] = result[0][j-1] + map[0][j];
+                } else if (j == 0) {             //첫번째 열 채우기 : 위에서 오는 값만 신경쓴다.
+                    result[i][0] = result[i-1][0] + map[i][0];
+                } else {
+                    List<Integer> par = List.of(result[i-1][j], result[i][j-1], result[i-1][j-1]);
+                    result[i][j] = map[i][j] + par.stream().mapToInt(a -> a).min().getAsInt();
+                }
             }
         }
 //        Arrays.stream(result).map(Arrays::toString).forEach(System.out::println);
